@@ -1,0 +1,713 @@
+import os
+print("\t ***CALCULO DEL PRESUPUESTO MAESTRO***")
+print(f'{"="*50}')  
+print("\t*****ESTADO DE SITUACION FINACIERA*****")
+print(f'{"="*50}')  
+print("DAME LAS SIGUIENTE INFORMACION FINANCIERA DEBE SER NUMERICO.")
+
+
+print(f'{"-"*110}')  
+print("""Maquilados Afilier, S.A. de C.V. es una empresa dedicada a la fabricación de chaquetas y sus clientes son comerciantes menores
+Dentro de sus operaciones del 2017 fabrica tres estilos de chaquetas: B Biker, BL Blazer y D Demin
+El Administrador de Finanzas le proporciona alrResponsable de elaborar el Presupuesto Maestro para el ejercicio del
+2018 el Balance General del 2017.""")
+print(f'{"-"*110}')  
+print("\tBALANCE GENRAL AL 31 DE DICIEMBRE DEL 2017")
+print("""\t\tACTIVOS\t\t\t\t PASIVOS""")
+print("""
+ Efectivo:330,000	                       Proveedores:75,500
+ Clientes:100,000                              Documentos por Pagar:160,000
+ Deudores Diversos:85,000	               ISR por Pagar:105,000
+ Funcionarios y Empleados:35,500	              
+ Inventario de materiales:75,000	              
+ Inventario de Producto Terminado:145,000    Préstamos Bancarios:900,000
+ Terreno:1,005,000
+ Planta y Equipo:1,320,000                   Capital Contribuido:1,200,000
+ Depreciación Acumulada:165000               Capital Ganado:490000
+""")
+print(f'{"-"*110}')
+print("""
+REQUERIMIENTO DE MATERIALES							
+                           B	  BL	  D			
+Materia Prima A metros:    2.0	  2.2	 3.0			
+Materia Prima B metros:	   1.5	  1.6	 2.0			
+Materia Prima C piezas:	   10.0   26.0	 6.0			
+Horas Mano de Obra    :	   3.0	  2.0	 2.5			
+""")
+print(f'{"-"*110}')
+print("""La hora de Mano de Obra Directa costará 18 pesos el primer semestre y 21 pesos el segundo semestre.  Los gastos
+indirectos de fabricación se aplican con base en hora de mano de obra.""")
+print(""" 
+INFORMACION DE INVENTARIOS						
+    Concepto		Inventario      Inventario      Costo       Costo 
+                        Inicial Primer  Final Segundo   Primer      Segundo
+                        Semestre        Semestre        Semestre    Semestre
+ 
+Materia Prima A metros		6,000	      4,000	 $12.00	    $13.00	
+Materia Prima B metros		4,000	      3,500	 $4.00	    $5.00	
+Materia Prima C piezas		3,000	      2,800	 $3.00	    $2.00	
+Producto B		        11,000	      7,500			
+Producto BL		        9,500	      8,500			
+Producto D		        7,000	      6,000			
+
+""")
+print(f'{"-"*110}')
+print("""
+PRODUCTOS						
+                                 	   B	      BL	  D		
+Precio de Venta Primer Semestre		 $410.00   $380.00	 $285.00		
+Precio de Venta Segundo Semestre	 $400.00   $410.00	 $300.00		
+Ventas planeadas Primer Semestre	 13,000	   14,500	 8,000		
+Ventas planeadas Segundo Semestre	 11,000	   12,800	 9,500		
+
+""")
+print(f'{"-"*110}')
+print("""
+Gastos de Administración y Ventas:				
+Depreciación:16,000	Anuales	
+Sueldos y Salarios:350,000 Anuales	
+Comisiones: 2% de las ventas proyectadas	
+Varios: 20,000 Primer Semestre	
+Varios: 8,000 Segundo Semestre	
+Intereses por Préstamo: 5,000 Anuales	
+""")
+print(f'{"-"*110}')
+print("""
+Gastos de Fabricación Indirectos	
+Depreciación:80,000	anuales	
+Seguros	25,000		anuales	
+Mantenimiento:38,000	Primer Semestre	
+Mantenimiento:35,000	Segundo Semestre	
+Energéticos:60,000	Primer Semestre	
+Energéticos:25,000	Segundo Semestre	
+Varios:85,000	anuales	
+""")
+print(f'{"-"*110}')
+print("""
+Datos Adicionales:			
+En 2018 se adquirirá un equipo nuevo valuado en 85000 pesos, no se depreciará durante el ejercicio presupuestado. La Tasa de ISR es del 30%						
+La tasa del PTU es del 10%						
+En 2018 se cobrará el 100% del saldo de clientes del 2017. En 2018 se cobrará el 80% de las ventas presupuestadas						
+En 2018 se pagará el 100% del saldo de proveedores del 2017. En 2018 se pagará el 50% de las compras presupuestadas						
+Se pagará el ISR del 2017.						
+""")
+print(f'{"="*50}')  
+print("\t\t*****ACTIVO*****")
+print(f'{"="*50}')
+efectivo = float(input("EFECTIVO: "))
+clientes = float(input("CLIENTES: "))
+deudores_diversos = float(input("DEUDORES DIVERSOS: "))
+funcionarios_empleados = float(input("FUNCIONARIOS Y EMPLEADOS: "))
+inventario_materiales = float(input("INVENTARIO DE MATERIALES: "))
+inventario_producto_terminado = float(input("INVENTARIO DE PRODUCTO TERMINADO: "))
+print(f'{"="*50}')
+Total_Activo_Circulante = efectivo+clientes+deudores_diversos+funcionarios_empleados+inventario_materiales+inventario_producto_terminado
+print(f'TOTAL DE ACTIVO CIRCULANTE: {Total_Activo_Circulante}')
+print(f'{"="*50}')
+print()
+terreno	= float(input("TERRENO: "))
+planta_equipo = float(input("PLANTA Y EQUIPO: "))	
+depreciación_acumulada = float(input("DEPRECIACIÓN ACUMULADA: "))
+Total_Activo_No_Circulante = (terreno+planta_equipo)-depreciación_acumulada
+print()
+print(f'{"="*50}')
+print(f'TOTAL DE ACTIVO NO CIRCULANTE:{Total_Activo_No_Circulante}')
+print(f'{"="*50}')
+print()
+print(f'{"="*50}')  
+print("\t\t*****PASIVOS*****")
+print(f'{"="*50}')
+proveedores	= float(input("PROVEEDORES: "))	
+documentos_por_pagar = float(input("DOCUMENTOS POR PAGAR: "))	
+ISR_por_pagar = float(input("ISR POR PAGAR: "))
+print(f'{"="*50}')
+Total_Pasivo_Corto_Plazo = (proveedores+documentos_por_pagar+ISR_por_pagar)
+print(f'{"="*50}')
+
+print(f'TOTAL DE PASIVO CORTO PLAZO: {Total_Pasivo_Corto_Plazo}')
+prestamos_bancarios = float(input("PRESTAMOS BANCARIOS: "))
+print(f'TOTAL DE PASIVO LARGO PLAZO: {prestamos_bancarios}')
+pasivo_total = Total_Pasivo_Corto_Plazo+prestamos_bancarios
+print(f'PASIVO TOTAL: {pasivo_total}')
+print(f'{"="*50}')
+print('\t\tCAPITAL CONTABLE')
+capital_contribuido = float(input("CAPITAL CONTRIBUIDO: "))
+capital_ganado = float(input("CAPITAL GANADO: "))
+capital_contable_total =capital_contribuido+capital_ganado
+print(f'CAPITAL CONTABLE TOTAL: {capital_contable_total}')
+
+activo_total = Total_Activo_Circulante+Total_Activo_No_Circulante
+suma_pasivo_capital =pasivo_total+capital_contable_total
+print(f'{"="*50}')  
+print(f'ACTIVO TOTAL: {activo_total}\t\tSUMA PASIVO Y CAPITAL: {suma_pasivo_capital}')
+#HASTA AQUI LLEGA LO DE BALANCE GENERAL *******************
+
+
+print(f'{"="*50}')
+print("\t\tREQUERIMIENTO DE MATERIALES")#RQUERIMIENTO DE MATERIALES
+
+print(f'{"="*50}')
+materia_prima_a_b=float(input("Dame el valor de materia prima A de B: "))
+materia_prima_a_bl=float(input("Dame el valor de materia prima A de BL: "))
+materia_prima_a_d=float(input("Dame el valor de materia prima A de D: "))
+
+materia_prima_b_b=float(input("\nDame el valor de materia prima B de B: "))
+materia_prima_b_bl=float(input("Dame el valor de materia prima B de BL: "))
+materia_prima_b_d=float(input("Dame el valor de materia prima B de D: "))
+
+materia_prima_c_b=float(input("\nDame el valor de materia prima C de B: "))
+materia_prima__c_bl=float(input("Dame el valor de materia prima C de BL: "))
+materia_prima_c_d=float(input("Dame el valor de materia prima C de D: "))
+
+horas_mano_obra_b=float(input("\nHoras de mano de obra de B: "))
+horas_mano_obra_bl=float(input("Horas de mano de obra de BL: "))
+horas_mano_obra_d=float(input("Horas de mano de obra de D: "))
+
+horas_mano_obra_primerSem = float(input("La hora de Mano de Obra Directa costará: "))
+horas_mano_obra_segundoSem = float(input("pesos el primer semestre y:  "))
+print("pesos el segundo semestre Los gastos indirectos de fabricación se aplican con base en hora de mano de obra.")                                         
+print(f'{"="*50}')
+
+
+print("\nINFORMACION DE INVENTARIOS")#INFORMACION DE INVENTARIO
+print("Ingresa los siguientes datos numericos")
+
+materia_prima_a_inventario_inicial_primerSem =float(input("Materia prima A Inventario Inicial Primer Semestre: ")) 
+materia_prima_b_inventario_inicial_primerSem =float(input("Materia prima B Inventario Inicial Primer Semestre: ")) 
+materia_prima_c_inventario_inicial_primerSem =float(input("Materia prima C Inventario Inicial Primer Semestre: ")) 
+producto_b_inventario_inicial_primerSem =float(input("Producto B Inventario Inicial Primer Semestre: ")) 
+producto_bl_inventario_inicial_primerSem =float(input("Producto BL Inventario Inicial Primer Semestre: ")) 
+producto_d_inventario_inicial_primerSem =float(input("Producto D Inventario Inicial Primer Semestre: ")) 
+
+print(f'{"-"*65}')
+materia_prima_a_inventario_final_segundoSem =float(input("Materia prima A Inventario Final Segundo Semestre: ")) 
+materia_prima_b_inventario_final_segundoSem =float(input("Materia prima B Inventario Final Segundo Semestre: ")) 
+materia_prima_c_inventario_final_segundoSem =float(input("Materia prima C Inventario Final Segundo Semestre: ")) 
+producto_b_inventario_final_segundoSem =float(input("Producto B Inventario Final Segundo Semestre: ")) 
+producto_bl_inventario_final_segundoSem =float(input("Producto BL Inventario Final Segundo Semestre: ")) 
+producto_d_inventario_final_segundoSem =float(input("Producto D Inventario Final Segundo Semestre: ")) 
+
+print(f'{"-"*65}')
+materia_prima_a_costo_primerSem =float(input("Materia prima A Costo Primer Semestre: ")) 
+materia_prima_b_costo_primerSem =float(input("Materia prima B Costo Primer Semestre: ")) 
+materia_prima_c_costo_primerSem =float(input("Materia prima C Costo Primer Semestre: ")) 
+
+print(f'{"-"*65}')
+materia_prima_a_costo_SegundoSem =float(input("Materia prima A Costo Segundo Semestre: ")) 
+materia_prima_b_costo_SegundoSem =float(input("Materia prima B Costo Segundo Semestre: ")) 
+materia_prima_c_costo_SegundoSem =float(input("Materia prima C Costo Segundo Semestre: ")) 
+
+print(f'{"-"*65}')
+
+
+print("PRODUCTOS")
+print("PROPORCIONA LOS SIGUIENTES DATOS NUMERICOS")
+Precio_Venta_Primer_Semestre_b = float(input("Precio de Venta Primer Semestre | B: "))
+Precio_Venta_Primer_Semestre_bl = float(input("Precio de Venta Primer Semestre | BL: "))
+Precio_Venta_Primer_Semestre_d = float(input("Precio de Venta Primer Semestre | D: "))
+
+Precio_Venta_Segundo_Semestre_b = float(input("Precio de Venta Segundo Semestre | B: "))
+Precio_Venta_Segundo_Semestre_bl = float(input("Precio de Venta Segundo Semestre | BL: "))
+Precio_Venta_Segundo_Semestre_d = float(input("Precio de Venta Segundo Semestre | D: "))
+
+
+Ventas_planeadas_Primer_Semestre_b = float(input("Ventas planeadas Primer Semestre  | B: "))
+Ventas_planeadas_Primer_Semestre_bl = float(input("Ventas planeadas Primer Semestre	| BL: "))
+Ventas_planeadas_Primer_Semestre_d = float(input("Ventas planeadas Primer Semestre	| D: "))
+
+Ventas_planeadas_Segundo_Semestre_b = float(input("Ventas planeadas Segundo Semestre    | B:  "))
+Ventas_planeadas_Segundo_Semestre_bl = float(input("Ventas planeadas Segundo Semestre	| BL:  "))
+Ventas_planeadas_Segundo_Semestre_d = float(input("Ventas planeadas Segundo Semestre	| D:  "))
+
+print(f'{"="*70}')
+print("GASTOS DE ADMINISTRACION Y VENTAS")
+print("INGRESA LA SIGUIENTE INFORMACION")
+Depreciación = float(input("Depresiacion Anuales: "))
+Sueldos_Salarios = float(input("Sueldos y Sakarios Anuales: "))
+Comisiones = float(input("Comisiones de las ventas proyectadas: "))
+Varios_primer = float(input("Varios Primer Semestre: "))
+Varios_segundo = float(input("Varios Segundo Semestre: "))
+Intereses_Préstamo = float(input("Intereses Por Prestamo Anuales: "))
+
+print(f'{"-"*70}')
+print("GASTOS DE FABRICACION INDIRECTOS")
+print("INGRESA LA SIGUIENTE INFORMACION")
+Depreciación_gastos_indirectos = float(input("Depresiacion Anuales: "))
+Seguros = float(input("Seguros Anuales: "))
+Mantenimiento_primer = float(input("Mantenimiento Primer Semestre: "))
+Mantenimiento_segundo = float(input("Mantenimiento Segundo Semestre: "))
+Energeticos_primer = float(input("Energeticos Primer Semestre: "))
+Energeticos_segundo = float(input("Energeticos Segundo Semestre: "))
+varios = float(input("Varios Anuales: "))
+os.system('cls')
+  
+print(f'{"="*70}')
+("1.PRESUPUESTO DE VENTAS")
+print(" PRODUCTO CL\t\t| 1er.Semestre\t\t| 2do.Semestre\t\t| 2018")
+print(f'{"-"*70}')
+print(f'Unidades a vender: \t{Ventas_planeadas_Primer_Semestre_b:10}|\t{Ventas_planeadas_Segundo_Semestre_b:20}|')	
+print(f'Precio de Venta:   \t{Precio_Venta_Primer_Semestre_b:10}|\t{Precio_Venta_Segundo_Semestre_b:20}|')
+importeventas1 =Ventas_planeadas_Primer_Semestre_b*Precio_Venta_Primer_Semestre_b
+importeventas2 = Ventas_planeadas_Segundo_Semestre_b*Precio_Venta_Segundo_Semestre_b
+sumaventas1 = importeventas1+importeventas2
+print(f'Importe de venta:  \t{importeventas1:10}|\t{importeventas2:20}|\t{sumaventas1:18}')
+
+print(f'Unidades a vender: \t{Ventas_planeadas_Primer_Semestre_bl:10}|\t{Ventas_planeadas_Segundo_Semestre_bl:20}|')	
+print(f'Precio de Venta:   \t{Precio_Venta_Primer_Semestre_bl:10}|\t{Precio_Venta_Segundo_Semestre_bl:20}|')
+importeventas1seg =Ventas_planeadas_Primer_Semestre_bl*Precio_Venta_Primer_Semestre_bl
+importeventas2seg = Ventas_planeadas_Segundo_Semestre_bl*Precio_Venta_Segundo_Semestre_bl
+sumaventas2 = importeventas1seg+importeventas2seg
+print(f'Importe de venta:  \t{importeventas1seg:10}|\t{importeventas2seg:20}|\t{sumaventas2:18}')
+
+print(f'Unidades a vender: \t{Ventas_planeadas_Primer_Semestre_d:10}|\t{Ventas_planeadas_Segundo_Semestre_d:20}|')	
+print(f'Precio de Venta:   \t{Precio_Venta_Primer_Semestre_d:10}|\t{Precio_Venta_Segundo_Semestre_d:20}|')
+importeventas1c =Ventas_planeadas_Primer_Semestre_d*Precio_Venta_Primer_Semestre_d
+importeventas2c = Ventas_planeadas_Segundo_Semestre_d*Precio_Venta_Segundo_Semestre_d
+sumaventas3 =importeventas1c+importeventas2c
+print(f'Importe de venta:  \t{importeventas1c:10}|\t{importeventas2c:20}|\t{sumaventas3:18}')
+sumapresupuestoventas = importeventas1 + importeventas1seg + importeventas1c
+sumapresupuestoventas2 = importeventas2 + importeventas2seg + importeventas2c
+sumatotalventas = sumaventas1 + sumaventas2 + sumaventas3
+
+print(f"Total de ventas por semestre: {sumapresupuestoventas:5}|\t{sumapresupuestoventas2:20}|\t{sumatotalventas:18}")
+print(f'{"="*70}')
+
+
+print("2. DETERMINACIÓN DEL SALDO DE CLIENTES Y FLUJO DE ENTRADAS")
+print(f'{"="*70}')
+print("DESCRIPCION\t\t\t|    IMPORTE\t\t |     TOTAL\t\t|")
+print(f'{"-"*70}')
+print(f"Saldo de clientes 31-Dic-2017: \t\t\t\t |{clientes:12}")
+print(f"ventas 2018:  \t\t\t\t\t\t |{sumatotalventas:12}")
+suma_saldo_clientes = clientes+sumatotalventas
+print(f'Total de Clientes 2018:\t\t\t\t\t |{suma_saldo_clientes:12}')
+print("Entradas de Efectivo:")
+print(f'{"-"*70}')
+suma_porcentaje = sumatotalventas*0.8
+print(f"Por Cobranza del 2017:\t\t|{clientes:12}")
+print(f"Por Cobranza del 2018:\t\t|{suma_porcentaje:12}")
+suma_saldo_porcentaje = suma_porcentaje+clientes
+print(f'\t\t\t\t\t\t\t |{suma_saldo_porcentaje:12}')
+saldo_clientes = suma_saldo_clientes-suma_saldo_porcentaje
+print(f'Saldo de Clientes del 2018\t\t\t\t |{saldo_clientes:12}')
+print(f'{"-"*70}')
+
+
+print("3. PRESUPUESTO DE PRODUCCIÓN")#PRUDUCCION
+print(f'{"="*70}')
+print("DESCRIPCION\t\t\t|   1.Semestre\t\t |    2.Semestre\t\t|    3.Semestre\t\t")
+print("  PRODUCTO B\t") #producto b presupuesto de produccion
+sumatoria = Ventas_planeadas_Primer_Semestre_b + Ventas_planeadas_Segundo_Semestre_b
+print(f"Unidades a vender:\t\t|{Ventas_planeadas_Primer_Semestre_b:10}\t\t |{Ventas_planeadas_Segundo_Semestre_b:10}\t\t\t| {sumatoria:10}")
+print(f"(+) Inventario Final:\t\t|{producto_b_inventario_inicial_primerSem:10}\t\t |{producto_b_inventario_final_segundoSem:10}\t\t\t| {producto_b_inventario_final_segundoSem:10}")
+total_unidades1 = Ventas_planeadas_Primer_Semestre_b + producto_b_inventario_inicial_primerSem
+total_unidades2 = Ventas_planeadas_Segundo_Semestre_b + producto_b_inventario_final_segundoSem
+total_unidadesfinal = sumatoria + producto_b_inventario_final_segundoSem 
+print(f"(=) Total de Unidades:\t\t|{total_unidades1:10}\t\t |{total_unidades2:10}\t\t\t| {total_unidadesfinal:10}")
+print(f"(-) Inventario Inicial:\t\t|{producto_b_inventario_inicial_primerSem:10}\t\t |{producto_b_inventario_inicial_primerSem:10}\t\t\t| {producto_b_inventario_inicial_primerSem:10}")
+unidad_producir1 = total_unidades1 - producto_b_inventario_inicial_primerSem
+unidad_producir2 = total_unidades2 - producto_b_inventario_inicial_primerSem
+unidad_producirtotal = total_unidadesfinal - producto_b_inventario_inicial_primerSem
+print(f"(=) Unidades a Producir:\t|{unidad_producir1:10}\t\t |{unidad_producir2:10}\t\t\t| {unidad_producirtotal:10}") 
+
+
+print(f'{"-"*70}')
+print("  PRODUCTO BL\t") #producto bl presupuesto de produccion
+sumatoria2 = Ventas_planeadas_Primer_Semestre_bl + Ventas_planeadas_Segundo_Semestre_bl
+print(f"Unidades a vender:\t\t|{Ventas_planeadas_Primer_Semestre_bl:10}\t\t |{Ventas_planeadas_Segundo_Semestre_bl:10}\t\t\t| {sumatoria2:10}")
+print(f"(+) Inventario Final:\t\t|{producto_bl_inventario_inicial_primerSem:10}\t\t |{producto_bl_inventario_final_segundoSem:10}\t\t\t| {producto_bl_inventario_final_segundoSem:10}")
+total_unidades1_1 = Ventas_planeadas_Primer_Semestre_bl + producto_bl_inventario_inicial_primerSem
+total_unidades2_2 = Ventas_planeadas_Segundo_Semestre_bl + producto_bl_inventario_final_segundoSem
+total_unidadesfinal1 = sumatoria2 + producto_bl_inventario_final_segundoSem 
+print(f"(=) Total de Unidades:\t\t|{total_unidades1_1:10}\t\t |{total_unidades2_2:10}\t\t\t| {total_unidadesfinal1:10}")
+print(f"(-) Inventario Inicial:\t\t|{producto_bl_inventario_inicial_primerSem:10}\t\t |{producto_bl_inventario_inicial_primerSem:10}\t\t\t| {producto_bl_inventario_inicial_primerSem:10}")
+unidad_producir1_1 = total_unidades1_1 - producto_bl_inventario_inicial_primerSem
+unidad_producir2_2 = total_unidades2_2 - producto_bl_inventario_inicial_primerSem
+unidad_producirtotal1 = total_unidadesfinal1 - producto_bl_inventario_inicial_primerSem
+print(f"(=) Unidades a Producir:\t|{unidad_producir1_1:10}\t\t |{unidad_producir2_2:10}\t\t\t| {unidad_producirtotal1:10}")
+print(f'{"-"*70}')
+
+print("  PRODUCTO D\t") #producto d presupuesto de produccion
+sumatoria3 = Ventas_planeadas_Primer_Semestre_d + Ventas_planeadas_Segundo_Semestre_d
+print(f"Unidades a vender:\t\t|{Ventas_planeadas_Primer_Semestre_d:10}\t\t |{Ventas_planeadas_Segundo_Semestre_d:10}\t\t\t| {sumatoria3:10}")
+print(f"(+) Inventario Final:\t\t|{producto_d_inventario_inicial_primerSem:10}\t\t |{producto_d_inventario_final_segundoSem:10}\t\t\t| {producto_d_inventario_final_segundoSem:10}")
+total_unidades1_1_1 = Ventas_planeadas_Primer_Semestre_d + producto_d_inventario_inicial_primerSem
+total_unidades2_2_2 = Ventas_planeadas_Segundo_Semestre_d + producto_d_inventario_final_segundoSem
+total_unidadesfinal1_1= sumatoria3 + producto_d_inventario_final_segundoSem 
+print(f"(=) Total de Unidades:\t\t|{total_unidades1_1_1:10}\t\t |{total_unidades2_2_2:10}\t\t\t| {total_unidadesfinal1_1:10}")
+print(f"(-) Inventario Inicial:\t\t|{producto_d_inventario_inicial_primerSem:10}\t\t |{producto_d_inventario_inicial_primerSem:10}\t\t\t| {producto_d_inventario_inicial_primerSem:10}")
+unidad_producir1_1_1 = total_unidades1_1_1 - producto_d_inventario_inicial_primerSem
+unidad_producir2_2_2 = total_unidades2_2_2 - producto_d_inventario_inicial_primerSem
+unidad_producirtotal1_1 = total_unidadesfinal1_1 - producto_d_inventario_inicial_primerSem
+print(f"(=) Unidades a Producir:\t|{unidad_producir1_1_1:10}\t\t |{unidad_producir2_2_2:10}\t\t\t| {unidad_producirtotal1_1:10}")
+print(f'{"="*70}')
+
+#=========================================================================================================================================
+print("\n4. PRESUPUESTO DE REQUERIMIENTO DE MATERIALES")
+print("DESCRIPCION\t\t\t|   1.Semestre\t\t |    2.Semestre\t\t|    Total 2018\t\t")
+#--------------------------------------------------------------------------------------------------------------------------------------
+print("  PRODUCTO B\t") 
+print(f"Unidades a producir:\t\t|{unidad_producir1:10}\t\t |{unidad_producir2:10}\t\t\t| {unidad_producirtotal:10}")
+print("  MATERIAL A\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_a_b:10}\t\t |{materia_prima_a_b:10}\t\t\t| {materia_prima_a_b:10}")
+total_material1 = unidad_producir1 * materia_prima_a_b 
+total_material2 = unidad_producir2 * materia_prima_a_b
+total_material3 = unidad_producirtotal * materia_prima_a_b
+print(f"Total de Material A requerido:\t\t|{total_material1:10}\t\t |{total_material2:10}\t\t\t| {total_material3:10}")
+print("  MATERIAL B\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_b_b:10}\t\t |{materia_prima_b_b:10}\t\t\t| {materia_prima_b_b:10}")
+total_material1_1 = unidad_producir1 * materia_prima_b_b 
+total_material2_2 = unidad_producir2 * materia_prima_b_b
+total_material3_3 = unidad_producirtotal * materia_prima_b_b
+print(f"Total de Material B requerido:\t\t|{total_material1_1:10}\t\t |{total_material2_2:10}\t\t\t| {total_material3_3:10}")
+
+print("  MATERIAL C\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_c_b:10}\t\t |{materia_prima_c_b:10}\t\t\t| {materia_prima_c_b:10}")
+total_material1_1_1 = unidad_producir1 * materia_prima_c_b 
+total_material2_2_2 = unidad_producir2 * materia_prima_c_b
+total_material3_3_3 = unidad_producirtotal * materia_prima_c_b
+print(f"Total de Material C requerido:\t\t|{total_material1_1_1:10}\t\t |{total_material2_2_2:10}\t\t\t| {total_material3_3_3 :10}")
+
+#******************************************************************************************************************************************
+
+print("  PRODUCTO BL\t") 
+print(f"Unidades a producir:\t\t|{unidad_producir1_1:10}\t\t |{unidad_producir2_2:10}\t\t\t| {unidad_producirtotal1:10}")
+print("  MATERIAL A\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_a_bl:10}\t\t |{materia_prima_a_bl:10}\t\t\t| {materia_prima_a_bl:10}")
+total_material_bl = unidad_producir1_1 * materia_prima_a_bl
+total_material2_bl = unidad_producir2_2 * materia_prima_a_bl
+total_material3_bl = unidad_producirtotal1 * materia_prima_a_bl
+print(f"Total de Material A requerido:\t\t|{total_material_bl:10}\t\t |{total_material2_bl:10}\t\t\t| {total_material3_bl:10}")
+
+print("  MATERIAL B\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_b_bl:10}\t\t |{materia_prima_b_bl:10}\t\t\t| {materia_prima_b_bl:10}")
+total_material1_1_bl = unidad_producir1_1 * materia_prima_b_bl 
+total_material2_2_bl = unidad_producir2_2 * materia_prima_b_bl
+total_material3_3_bl = unidad_producirtotal1 * materia_prima_b_bl
+print(f"Total de Material B requerido:\t\t|{total_material1_1_bl:10}\t\t |{total_material2_2_bl:10}\t\t\t| {total_material3_3_bl:10}")
+
+print("  MATERIAL C\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima__c_bl:10}\t\t |{materia_prima__c_bl:10}\t\t\t| {materia_prima__c_bl:10}")
+total_material1_1_1_bl = unidad_producir1_1 * materia_prima__c_bl
+total_material2_2_2_bl = unidad_producir2_2 * materia_prima__c_bl
+total_material3_3_3_bl = unidad_producirtotal1 * materia_prima__c_bl
+print(f"Total de Material C requerido:\t\t|{total_material1_1_1_bl:10}\t\t |{total_material2_2_2_bl:10}\t\t\t| {total_material3_3_3_bl:10}")
+
+#******************************************************************************************************************************************
+
+print("  PRODUCTO D\t") 
+print(f"Unidades a producir:\t\t|{unidad_producir1_1_1:10}\t\t |{unidad_producir2_2_2:10}\t\t\t| {unidad_producirtotal1_1:10}")
+print("  MATERIAL A\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_a_d:10}\t\t |{materia_prima_a_d:10}\t\t\t| {materia_prima_a_d:10}")
+total_material1_d = unidad_producir1_1_1 * materia_prima_a_d 
+total_material2_d = unidad_producir2_2_2 * materia_prima_a_d
+total_material3_d = unidad_producirtotal1_1 * materia_prima_a_d
+print(f"Total de Material A requerido:\t\t|{total_material1_d:10}\t\t |{total_material2_d:10}\t\t\t| {total_material3_d:10}")
+
+print("  MATERIAL B\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_b_d:10}\t\t |{materia_prima_b_d:10}\t\t\t| {materia_prima_b_d:10}")
+total_material1_1_d = unidad_producir1_1_1 * materia_prima_b_d 
+total_material2_2_d = unidad_producir2_2_2 * materia_prima_b_d
+total_material3_3_d = unidad_producirtotal1_1 * materia_prima_b_d
+print(f"Total de Material B requerido:\t\t|{total_material1_1_d:10}\t\t |{total_material2_2_d:10}\t\t\t| {total_material3_3_d:10}")
+
+print("  MATERIAL C\t") 
+print(f"Requerimiento de material:\t\t|{materia_prima_c_d:10}\t\t |{materia_prima_c_d:10}\t\t\t| {materia_prima_c_d:10}")
+total_material1_1_1_d = unidad_producir1_1_1 * materia_prima_c_d
+total_material2_2_2_d = unidad_producir2_2_2 * materia_prima_c_d
+total_material3_3_3_d = unidad_producirtotal1_1 * materia_prima_c_d
+print(f"Total de Material C requerido:\t\t|{total_material1_1_1_d:10}\t\t |{total_material2_2_2_d:10}\t\t\t| {total_material3_3_3_d:10}")
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------
+print(f'{"-"*70}')
+print("TOTAL DE REQUERIMIENTOS")
+suma_material_a_1 = total_material1 + total_material_bl + total_material1_d
+suma_material_a_2 = total_material2 + total_material2_bl + total_material2_d
+suma_material_a_3 = total_material3 + total_material3_bl + total_material3_d
+
+suma_material_b_1 = total_material1_1 + total_material1_1_bl + total_material1_1_d
+suma_material_b_2 = total_material2_2 + total_material2_2_bl + total_material2_2_d
+suma_material_b_3 =  total_material3_3 + total_material3_3_bl + total_material3_3_d
+
+suma_material_c_1 = total_material1_1_1 + total_material1_1_1_bl + total_material1_1_1_d
+suma_material_c_2 = total_material2_2_2 + total_material2_2_2_bl + total_material2_2_2_d
+suma_material_c_3 = total_material3_3_3 + total_material3_3_3_bl + total_material3_3_3_d
+
+print(f"Material A:\t\t|{suma_material_a_1:10}\t\t |{suma_material_a_2:10}\t\t\t| {suma_material_a_3:10}")
+print(f"Material B:\t\t|{suma_material_b_1:10}\t\t |{suma_material_b_2:10}\t\t\t| {suma_material_b_3:10}")
+print(f"Material C:\t\t|{suma_material_c_1:10}\t\t |{suma_material_c_2:10}\t\t\t| {suma_material_c_3:10}")
+
+print(f'{"="*70}')
+
+print("\t5. PRESUPUESTO DE COMPRA DE MATERIALES")
+print("DESCRIPCION\t\t\t|   1.Semestre\t\t |    2.Semestre\t\t|    Total 2018\t\t")
+print("  MATERIAL A\t") 
+print(f"Requerimiento de materiales:\t|{suma_material_a_1:10}\t\t |{suma_material_a_2:10}\t\t\t| {suma_material_a_3:10}")
+print(f"( + ) Inventario Final:\t\t|{materia_prima_a_inventario_inicial_primerSem:10}\t\t |{materia_prima_a_inventario_final_segundoSem:10}\t\t\t| {materia_prima_a_inventario_final_segundoSem:10}")
+materiales_Suma1 = suma_material_a_1 + materia_prima_a_inventario_inicial_primerSem
+materiales_Suma2 = suma_material_a_2 + materia_prima_a_inventario_final_segundoSem
+materiales_Suma3 = suma_material_a_3 + materia_prima_a_inventario_final_segundoSem
+print(f"Total de Materiales:\t\t|{materiales_Suma1:10}\t\t |{materiales_Suma2:10}\t\t\t| {materiales_Suma3:10}")
+print(f"( - ) Inventario Inicial:\t|{materia_prima_a_inventario_inicial_primerSem:10}\t\t |{materia_prima_a_inventario_inicial_primerSem:10}\t\t\t| {materia_prima_a_inventario_inicial_primerSem:10}")
+resta_materiales1 = materiales_Suma1 - materia_prima_a_inventario_inicial_primerSem
+resta_materiales2 = materiales_Suma2 - materia_prima_a_inventario_inicial_primerSem
+resta_materiales3 = materiales_Suma3 - materia_prima_a_inventario_inicial_primerSem
+
+print(f"Material a comprar:\t\t|{resta_materiales1:10}\t\t |{resta_materiales2:10}\t\t\t| {resta_materiales3:10}")
+print(f"Precio de Compra:\t\t|{materia_prima_a_costo_primerSem:10}\t\t |{materia_prima_a_costo_SegundoSem:10}\t\t\t| {'':10}")
+multi_materiales1 = resta_materiales1 * materia_prima_a_costo_primerSem
+multi_materiales2 = resta_materiales2 * materia_prima_a_costo_SegundoSem
+suma_materiales3 =multi_materiales1 + multi_materiales2
+print(f"Total de Material A en $:\t|{multi_materiales1:10}\t\t |{multi_materiales2:10}\t\t\t| {suma_materiales3:10}")
+
+#*****************************************************************************************************************************
+print(f'{"-"*100}')
+print("  MATERIAL B\t") 
+print(f"Requerimiento de materiales:\t|{suma_material_b_1:10}\t\t |{suma_material_b_2:10}\t\t\t| {suma_material_b_3:10}")
+print(f"( + ) Inventario Final:\t\t|{materia_prima_b_inventario_inicial_primerSem:10}\t\t |{materia_prima_b_inventario_final_segundoSem:10}\t\t\t| {materia_prima_b_inventario_final_segundoSem:10}")
+materiales_Suma1_b = suma_material_b_1 + materia_prima_b_inventario_inicial_primerSem
+materiales_Suma2_b = suma_material_b_2 + materia_prima_b_inventario_final_segundoSem
+materiales_Suma3_b = suma_material_b_3 + materia_prima_b_inventario_final_segundoSem
+print(f"Total de Materiales:\t\t|{materiales_Suma1_b:10}\t\t |{materiales_Suma2_b:10}\t\t\t| {materiales_Suma3_b:10}")
+print(f"( - ) Inventario Inicial:\t|{materia_prima_b_inventario_inicial_primerSem:10}\t\t |{materia_prima_b_inventario_inicial_primerSem:10}\t\t\t| {materia_prima_b_inventario_inicial_primerSem:10}")
+resta_materiales1_b = materiales_Suma1_b - materia_prima_b_inventario_inicial_primerSem
+resta_materiales2_b = materiales_Suma2_b - materia_prima_b_inventario_inicial_primerSem
+resta_materiales3_b = materiales_Suma3_b - materia_prima_b_inventario_inicial_primerSem
+
+print(f"Material a comprar:\t\t|{resta_materiales1_b:10}\t\t |{resta_materiales2_b:10}\t\t\t| {resta_materiales3_b:10}")
+print(f"Precio de Compra:\t\t|{materia_prima_b_costo_primerSem:10}\t\t |{materia_prima_b_costo_SegundoSem:10}\t\t\t| {'':10}")
+multi_materiales1_b = resta_materiales1_b * materia_prima_b_costo_primerSem
+multi_materiales2_b = resta_materiales2_b * materia_prima_b_costo_SegundoSem
+suma_materiales3_b =multi_materiales1_b + multi_materiales2_b
+print(f"Total de Material B en $:\t|{multi_materiales1_b:10}\t\t |{multi_materiales2_b:10}\t\t\t| {suma_materiales3_b:10}")
+
+#------------------------------------------------------------------------------------------------------------------------------------
+print(f'{"-"*100}')
+print("  MATERIAL C\t") 
+print(f"Requerimiento de materiales:\t|{suma_material_c_1:10}\t\t |{suma_material_c_2:10}\t\t\t| {suma_material_c_3:10}")
+print(f"( + ) Inventario Final:\t\t|{materia_prima_c_inventario_inicial_primerSem:10}\t\t |{materia_prima_c_inventario_final_segundoSem:10}\t\t\t| {materia_prima_c_inventario_final_segundoSem:10}")
+materiales_Suma1_c = suma_material_c_1 + materia_prima_c_inventario_inicial_primerSem
+materiales_Suma2_c = suma_material_c_2 + materia_prima_c_inventario_final_segundoSem
+materiales_Suma3_c = suma_material_c_3 + materia_prima_c_inventario_final_segundoSem
+print(f"Total de Materiales:\t\t|{materiales_Suma1_c:10}\t\t |{materiales_Suma2_c:10}\t\t\t| {materiales_Suma3_c:10}")
+print(f"( - ) Inventario Inicial:\t|{materia_prima_c_inventario_inicial_primerSem:10}\t\t |{materia_prima_c_inventario_inicial_primerSem:10}\t\t\t| {materia_prima_c_inventario_inicial_primerSem:10}")
+resta_materiales1_c = materiales_Suma1_c - materia_prima_c_inventario_inicial_primerSem
+resta_materiales2_c = materiales_Suma2_c - materia_prima_c_inventario_inicial_primerSem
+resta_materiales3_c = materiales_Suma3_c - materia_prima_c_inventario_inicial_primerSem
+
+print(f"Material a comprar:\t\t|{resta_materiales1_c:10}\t\t |{resta_materiales2_c:10}\t\t\t| {resta_materiales3_c:10}")
+print(f"Precio de Compra:\t\t|{materia_prima_c_costo_primerSem:10}\t\t |{materia_prima_c_costo_SegundoSem:10}\t\t\t| {'':10}")
+multi_materiales1_c = resta_materiales1_c * materia_prima_c_costo_primerSem
+multi_materiales2_c = resta_materiales2_c * materia_prima_c_costo_SegundoSem
+suma_materiales3_c =multi_materiales1_c + multi_materiales2_c
+print(f"Total de Material C en $:\t|{multi_materiales1_c:10}\t\t |{multi_materiales2_c:10}\t\t\t| {suma_materiales3_c:10}")
+compra_totales1 = multi_materiales1 + multi_materiales1_b + multi_materiales1_c
+compra_totales2 = multi_materiales2 + multi_materiales2_b + multi_materiales2_c
+compra_totales3 = suma_materiales3 + suma_materiales3_b + suma_materiales3_c
+
+print(f"Compras totales::\t\t|{compra_totales1:10}\t\t |{compra_totales2:10}\t\t\t| {compra_totales3:10}")
+print(f'{"-"*70}')
+
+#=================================================================================================
+print("6. DETERMINACIÓN DEL SALDO DE PROVEEDORES Y FLUJO DE SALIDAS")
+print("  DESCRIPCION\t\t\t\t\t|   Importe\t\t |    Total\t\t|    \t\t")
+print(f'Saldo de Proveedores 31-Dic-2017:\t\t\t\t  \t | {proveedores:10}')
+print(f'Compras 2018:\t\t\t\t\t\t\t\t | {compra_totales3:10}')
+sumatoriacompras = proveedores + compra_totales3
+print(f'Total de Proveedores 2018:\t\t\t\t\t\t | {sumatoriacompras:10}')
+print("Entradas de Efectivo")
+print(f'Por Proveedores del 2017:\t\t\t {proveedores:10}|')
+cobranza_2018 =compra_totales3 * 0.5
+print(f'Por Proveedores del 2018:\t  \t\t{cobranza_2018:10}|')
+suma_cobranza = cobranza_2018 + proveedores
+print(f'Total de Salidas 2018::\t\t\t\t \t\t \t | {suma_cobranza:10}')
+resta_cobranza = sumatoriacompras - suma_cobranza
+print(f'Saldo de Proveedores del 2018:\t\t\t\t \t \t | {resta_cobranza:10}')
+
+print(f'{"-"*70}')
+
+print("\t7. PRESUPUESTO DE MANO DE OBRA DIRECTA")
+print("DESCRIPCION\t\t\t|   1.Semestre\t\t |    2.Semestre\t\t|    Total 2013\t\t")
+print("  PRODUCTO CL\t") 
+print(f" Unidades a Producir:\t\t|{unidad_producir1:10}\t\t |{unidad_producir2:10}\t\t\t| {unidad_producirtotal:10}") 
+print(f"Horas requeridas por unidad:\t\t|{horas_mano_obra_b:10}\t\t |{horas_mano_obra_b:10}\t\t\t| {horas_mano_obra_b:10}")
+mul_obradirecta1 =unidad_producir1*horas_mano_obra_b
+mul_obradirecta2 = unidad_producir2 * horas_mano_obra_b
+mul_obradirecta3 = unidad_producirtotal* horas_mano_obra_b
+print(f"Total de horas requeridas:\t\t|{mul_obradirecta1:10}\t\t |{mul_obradirecta2:10}\t\t\t| {mul_obradirecta3:10}")
+cuota_hora1 = 25
+cuota_hora2 = 28
+print(f"Cuota por hora:\t\t|{cuota_hora1:10}\t\t |{cuota_hora2:10}\t\t\t| {'':10}")
+importe1mul = mul_obradirecta1 * cuota_hora1
+importe2mul = mul_obradirecta2 * cuota_hora2
+sumaimporte = importe1mul + importe2mul
+
+print(f"Importe de M.O.D.:\t\t|{importe1mul:10}\t\t |{importe2mul:10}\t\t\t| {sumaimporte:10}")
+#------------------------------------------------------------------------------------------------------------------------------
+print("  PRODUCTO CE\t") 
+print(f"Unidades a Producir:\t\t|{unidad_producir1_1:10}\t\t |{unidad_producir2_2:10}\t\t\t| {unidad_producirtotal1:10}")
+print(f"Horas requeridas por unidad:\t\t|{horas_mano_obra_bl:10}\t\t |{horas_mano_obra_bl:10}\t\t\t| {horas_mano_obra_bl:10}")
+mul_obradirecta1_bl =unidad_producir1_1*horas_mano_obra_bl
+mul_obradirecta2_bl = unidad_producir2_2 * horas_mano_obra_bl
+mul_obradirecta3_bl = unidad_producirtotal1* horas_mano_obra_bl
+print(f"Total de horas requeridas:\t\t|{mul_obradirecta1_bl:10}\t\t |{mul_obradirecta2_bl:10}\t\t\t| {mul_obradirecta3_bl:10}")
+cuota_hora1 = 25
+cuota_hora2 = 28
+print(f"Cuota por hora:\t\t|{cuota_hora1:10}\t\t |{cuota_hora2:10}\t\t\t| {'':10}")
+importe1mul_bl = mul_obradirecta1_bl * cuota_hora1
+importe2mul_bl = mul_obradirecta2_bl * cuota_hora2
+sumaimporte_bl = importe1mul_bl + importe2mul_bl
+
+print(f"Importe de M.O.D.:\t\t|{importe1mul_bl:10}\t\t |{importe2mul_bl:10}\t\t\t| {sumaimporte_bl:10}")
+
+#-------------------------------------------------------------------------------------------------------------------------------
+
+print("  PRODUCTO CR\t") 
+print(f"Unidades a Producir:\t\t|{unidad_producir1_1_1:10}\t\t |{unidad_producir2_2_2:10}\t\t\t| {unidad_producirtotal1_1:10}")
+print(f"Horas requeridas por unidad:\t\t|{horas_mano_obra_d:10}\t\t |{horas_mano_obra_d:10}\t\t\t| {horas_mano_obra_d:10}")
+mul_obradirecta1_d =unidad_producir1_1_1*horas_mano_obra_d
+mul_obradirecta2_d = unidad_producir2_2_2 * horas_mano_obra_d
+mul_obradirecta3_d = unidad_producirtotal1_1* horas_mano_obra_d
+print(f"Total de horas requeridas:\t\t|{mul_obradirecta1_d:10}\t\t |{mul_obradirecta2_d:10}\t\t\t| {mul_obradirecta3_d:10}")
+cuota_hora1 = 25
+cuota_hora2 = 28
+print(f"Cuota por hora:\t\t|{cuota_hora1:10}\t\t |{cuota_hora2:10}\t\t\t| {'':10}")
+importe1mul_d = mul_obradirecta1_d * cuota_hora1
+importe2mul_d = mul_obradirecta2_d * cuota_hora2
+sumaimporte_d = importe1mul_d + importe2mul_d
+print(f"Importe de M.O.D.:\t\t|{importe1mul_d:10}\t\t |{importe2mul_d:10}\t\t\t| {sumaimporte_d:10}")
+
+suma_horas1 = mul_obradirecta1 + mul_obradirecta1_bl + mul_obradirecta1_d
+suma_horas2 = mul_obradirecta2 + mul_obradirecta2_bl + mul_obradirecta2_d
+suma_horas3 = mul_obradirecta3 + mul_obradirecta3_bl + mul_obradirecta3_d
+print(f"Total de horas requeridas por semestre:\t\t|{suma_horas1:10}\t\t |{suma_horas2:10}\t\t\t| {suma_horas3:10}")
+suma_importe1 = importe1mul + importe1mul_bl + importe1mul_d
+suma_importe2 = importe2mul + importe2mul_bl + importe2mul_d
+suma_importe3 = sumaimporte + sumaimporte_bl + sumaimporte_d
+print(f"Total de M.O.D. por semestre:\t\t|{suma_importe1:10}\t\t |{suma_importe2:10}\t\t\t| {suma_importe3:10}")
+
+#-----------------------------------------------------------------------------------------------------------------------------------
+print(f'{"="*100}')
+print("\tMAQUILADOS AFILIER, S.A.")
+print("Estado de Flujo de Efectivo")
+print("Presupuesto del 1 de Enero al 31 de Diciembre del 2018")
+print(f'Saldo Inicial de Efectivo:\t\t |{efectivo:10}')
+print("Entradas:")
+print(f'Cobranza 2018:\t {suma_porcentaje:10}')
+print(f'Cobranza 2017:\t {clientes:10}')
+sumaflujo=suma_porcentaje + clientes
+print(f'Total de Entradas:\t\t\t\t | {sumaflujo:10}')
+sumatotiaflujo = sumaflujo + efectivo
+print(f'Efectivo Disponible:\t\t\t\t | {sumatotiaflujo:10}')
+print("Salidas:") #----------------------------------------
+print(f'Proveedores 2018: \t | {cobranza_2018:10}')
+print(f'Proveedores 2017: \t | {proveedores:10}')
+print(f'Pago Mano de Obra Directa: \t | {suma_importe3:10}')
+dato =  268000 
+print(f'Pago Gastos Indirectos de Fabricación: \t | {dato:10}')
+dato2 =  639180 
+print(f'Pago de Gastos de Operación: \t | {dato2:10}')
+compra_fija =  105000 
+print(f'Compra de Activo Fijo (Maquinaria): \t | {compra_fija:10}')
+print(f'Pago ISR 2017: \t | {ISR_por_pagar:10}')
+total1  = cobranza_2018 + proveedores + suma_importe3 + dato + dato2 + compra_fija + ISR_por_pagar
+print(f'Total de Salidas: \t\t\t\t | {total1:10}')
+total2 = sumatotiaflujo - total1
+print(f'Flujo de Efectivo Actual: \t\t\t\t | {total2:10}')
+
+
+print(f'{"-"*70}')
+print("\t MAQUILADOS AFILIER, S.A.")
+print("Balance General")
+print("Presupuesto al 31 de Diciembre del 2018")
+print("ACTIVO")
+print('Circulante	')
+print(f'Efectivo:	{total2:10}')
+print(f'Clientes:	{saldo_clientes:10}')
+print(f'Deudores Diversos	{deudores_diversos:10}')
+print(f'Funcionarios y Empleados  {funcionarios_empleados}')
+materiales_inventario =  75100 
+print(f'Inventario de Materiales  {materiales_inventario:10}')
+inventario_terminado1 =  3168436 
+print(f'Inventario de Producto Terminado:	{inventario_terminado1:10}')
+suma_circulante = total2 + saldo_clientes + deudores_diversos + funcionarios_empleados + materiales_inventario + inventario_terminado1
+print(f'Total de Activos Circulantes:\t\t\t\t | {suma_circulante}')
+print("No Circulante")
+print(f'Terreno:	{terreno:10}')
+print(f'Planta y Equipo:	{planta_equipo*compra_fija:10}')
+acumulada = -261000
+print(f'Depreciación Acumulada:	{acumulada:10}')
+totales = 1425000
+print(f'Total Activos No Circulante:\t\t\t\t | {totales:10}')
+activo_total_general = suma_circulante + totales
+print(f'ACTIVO TOTAL:\t\t\t\t | {activo_total_general:10}')
+print("PASIVO")
+print("corto plazo")
+print(f'Proveedores:	{resta_cobranza:10}')
+
+print(f'Documentos por Pagar:	{documentos_por_pagar:10}')
+valor =  5620088 
+valor2 = 1873363 
+
+print(f'ISR por Pagar:	{valor:10}')
+
+print(f'PTU por Pagar:	{valor2:10}')
+suma_pasivo_plazo = resta_cobranza+documentos_por_pagar+valor+valor2
+print(f'Total de Pasivo Corto Plazo: \t\t\t\t | {suma_pasivo_plazo:10}')
+print("largo plazo")
+print(f'Préstamos Bancarios: {prestamos_bancarios:10}')
+print(f'Total de Pasivo Largo Plazo: {prestamos_bancarios:10}')
+pasivo_suma = suma_pasivo_plazo + prestamos_bancarios
+print(f'PASIVO TOTAL: \t\t\t\t | {pasivo_suma:10}')
+print("CAPITAL CONTABLE")
+print(f'Capital Aportado: {capital_contribuido:10}')
+print(f'Capital Ganado: {capital_ganado:10}')
+ejercicio =  11240175 
+print(f'Utilidad del ejercicio: {ejercicio:10}')
+capital_suma = capital_contribuido + capital_ganado + ejercicio
+print(f'Total de Capital Contable: \t\t\t\t | {capital_suma:10}')
+suma_ambos = pasivo_suma + capital_suma
+print(f'SUMA DE PASIVO Y CAPITAL: \t\t\t\t | {suma_ambos:10}')
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
